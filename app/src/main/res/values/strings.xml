@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">VACCOVID19</string>
+
+    <string name="text_world">World</string>
+    <string name="text_country">Country</string>
+    <string name="text_vaccine">Vaccine</string>
+    <string name="text_news">News</string>
 </resources>
