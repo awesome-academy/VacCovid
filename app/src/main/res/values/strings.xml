@@ -8,9 +8,13 @@
     <string name="text_news">News</string>
     <string name="text_total">Total: %s</string>
     <string name="text_total_case">Total cases:</string>
-    <string name="text_total_active_case">Active cases</string>
-    <string name="text_total_deaths">Deaths</string>
-    <string name="text_total_recovered">Recovered cases</string>
+    <string name="text_total_death">Total death:</string>
+    <string name="text_total_recovered">Total recovered:</string>
+    <string name="text_total_active">Total active:</string>
+    <string name="text_active_case">Active cases</string>
+    <string name="text_deaths">Deaths</string>
+    <string name="text_recovered">Recovered cases</string>
     <string name="text_other">Other</string>
     <string name="text_daily_increase">Daily increase:</string>
+    <string name="text_new_recover">New recovered:</string>
 </resources>
