@@ -5,6 +5,8 @@ import com.example.vaccovid19.base.BaseFragment
 import com.example.vaccovid19.data.model.World
 import com.example.vaccovid19.databinding.FragmentHomeLayoutBinding
 import com.example.vaccovid19.utils.NumberFormat
+import com.example.vaccovid19.utils.hide
+import com.example.vaccovid19.utils.show
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -20,15 +22,17 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutB
 
     override fun initData() {
         bindData()
-        homeViewModel.worldData.observe(viewLifecycleOwner, {
-            binding?.world = it
-            world = it
-            initPieChart()
-            initChartDataset()
-        })
-    }
+        binding?.apply {
+            homeViewModel.worldData.observe(viewLifecycleOwner, {
+                chartWorldData.show()
+                worldBinding = it
+                world = it
+                initPieChart()
+                initChartDataset()
+                progressHome.hide()
+            })
+        }
 
-    override fun initViews() {
     }
 
     private fun bindData() {
@@ -65,15 +69,15 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutB
             val entries = listOf(
                 PieEntry(
                     recoveredPercent,
-                    context?.getString(R.string.text_total_recovered)
+                    context?.getString(R.string.text_recovered)
                 ),
                 PieEntry(
                     deathPercent,
-                    context?.getString(R.string.text_total_deaths)
+                    context?.getString(R.string.text_deaths)
                 ),
                 PieEntry(
                     activePercent,
-                    context?.getString(R.string.text_total_active_case)
+                    context?.getString(R.string.text_active_case)
                 )
 
             )
