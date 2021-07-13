@@ -75,4 +75,7 @@ dependencies {
     //navigation component
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.0-alpha04"
     implementation "androidx.navigation:navigation-ui-ktx:2.4.0-alpha04"
+
+    //MP android chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

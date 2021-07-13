@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class World(
     @SerializedName("TotalCases")
     val totalCase: Int,
+    @SerializedName("NewCases")
+    val newCases: Int,
     @SerializedName("TotalDeaths")
     val totalDeath: Int,
     @SerializedName("NewDeaths")

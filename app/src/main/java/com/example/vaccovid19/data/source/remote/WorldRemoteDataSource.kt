@@ -8,5 +8,5 @@ class WorldRemoteDataSource(
     private val service: ApiService
 ) : WordDataSource {
 
-    override suspend fun getWordData(): World = service.getWorldData()
+    override suspend fun getWordData(): World = service.getWorldData().first()
 }

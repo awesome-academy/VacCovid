@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET(ApiConstant.WORLD_URL)
-    suspend fun getWorldData(): World
+    suspend fun getWorldData(): List<World>
 }

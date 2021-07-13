@@ -3,7 +3,6 @@
 package com.example.vaccovid19.ui.splash
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.vaccovid19.MainActivity
 

@@ -2,7 +2,15 @@
     <string name="app_name">VACCOVID19</string>
 
     <string name="text_world">World</string>
+    <string name="text_world_data">World data</string>
     <string name="text_country">Country</string>
     <string name="text_vaccine">Vaccine</string>
     <string name="text_news">News</string>
+    <string name="text_total">Total: %s</string>
+    <string name="text_total_case">Total cases:</string>
+    <string name="text_total_active_case">Active cases</string>
+    <string name="text_total_deaths">Deaths</string>
+    <string name="text_total_recovered">Recovered cases</string>
+    <string name="text_other">Other</string>
+    <string name="text_daily_increase">Daily increase:</string>
 </resources>

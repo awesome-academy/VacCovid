@@ -1,6 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="world"
+            type="com.example.vaccovid19.data.model.World" />
+
+        <variable
+            name="numberFormat"
+            type="com.example.vaccovid19.utils.NumberFormat" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textHomeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_bombay"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_world"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_22"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageSaved"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:contentDescription="@null"
+            android:padding="@dimen/dp_8"
+            android:src="@drawable/ic_bookmark"
+            app:layout_constraintBottom_toBottomOf="@id/textHomeTitle"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textHomeTitle" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textHomeTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chartWorldData"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/dp_60"
+                    android:layout_marginTop="@dimen/dp_30"
+                    app:layout_constraintDimensionRatio="H,1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@drawable/bg_border_15_heavy_metal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chartWorldData">
+
+                    <TextView
+                        android:id="@+id/textTotalCase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:text="@string/text_total_case"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/sp_22"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textNumberCase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:layout_marginEnd="@dimen/dp_20"
+                        android:text="@{numberFormat.getNumberFormat(world.totalCase)}"
+                        android:textColor="@color/color_green"
+                        android:textSize="@dimen/sp_22"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textTotalCase" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:src="@drawable/ic_green_tick"
+                        app:layout_constraintBottom_toBottomOf="@id/textNumberCase"
+                        app:layout_constraintRight_toLeftOf="@id/textNumberCase"
+                        app:layout_constraintTop_toTopOf="@id/textNumberCase" />
+
+                    <TextView
+                        android:id="@+id/textNumberIncrease"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:layout_marginBottom="@dimen/dp_20"
+                        android:text="@{numberFormat.getNumberFormatIncrease(world.newCases)}"
+                        android:textColor="@color/color_japanese_laurel"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="@id/textNumberCase"
+                        app:layout_constraintTop_toBottomOf="@id/textNumberCase" />
+
+                    <TextView
+                        android:id="@+id/textDailyIncrease"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:text="@string/text_daily_increase"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintBottom_toBottomOf="@id/textNumberIncrease"
+                        app:layout_constraintRight_toLeftOf="@id/textNumberIncrease"
+                        app:layout_constraintTop_toTopOf="@id/textNumberIncrease" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

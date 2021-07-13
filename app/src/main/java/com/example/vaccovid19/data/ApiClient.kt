@@ -9,16 +9,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
 
-    fun getOkHttpClient(): OkHttpClient {
+    private fun getOkHttpClient(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         val builder = OkHttpClient.Builder()
         return builder.addInterceptor {
-            val original = it.request()
-            val url = original.url.newBuilder()
-                .addQueryParameter(ApiConstant.API_PARAM, BuildConfig.API_KEY)
+            val request = it.request().newBuilder()
+                .addHeader(ApiConstant.API_PARAM, BuildConfig.API_KEY)
                 .build()
-            val request = original.newBuilder().url(url).build()
             it.proceed(request)
 
         }.addInterceptor(httpLoggingInterceptor)
