@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
 
@@ -18,7 +19,7 @@ abstract class BaseViewModel : ViewModel() {
         get() = _error
 
     protected val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        Thread { _error.value = throwable.message }.start()
+        viewModelScope.launch { _error.postValue(throwable.message) }
     }
 
     override fun onCleared() {
