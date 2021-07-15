@@ -4,6 +4,7 @@
     <string name="text_world">World</string>
     <string name="text_world_data">World data</string>
     <string name="text_country">Country</string>
+    <string name="text_continent">Continent</string>
     <string name="text_vaccine">Vaccine</string>
     <string name="text_news">News</string>
     <string name="text_total">Total: %s</string>
@@ -17,4 +18,11 @@
     <string name="text_other">Other</string>
     <string name="text_daily_increase">Daily increase:</string>
     <string name="text_new_recover">New recovered:</string>
+    <string name="text_euro_tile">1. European countries</string>
+    <string name="text_asia_tile">2. Asian countries</string>
+    <string name="text_african_tile">3. African countries</string>
+    <string name="text_northern_tile">4. Northern American countries</string>
+    <string name="text_southern_tile">5. Southern American countries</string>
+    <string name="text_oceania_tile">6. Australia and Oceania countries</string>
+    <string name="text_more">See all></string>
 </resources>

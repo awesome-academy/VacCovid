@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textContinentTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_trout"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_continent"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_22"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textEuro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_30"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_euro_tile"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textContinentTitle" />
+
+        <TextView
+            android:id="@+id/textEuroSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textEuro"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textEuro" />
+
+        <View
+            android:id="@+id/viewEuroStraight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textEuro"
+            app:layout_constraintRight_toRightOf="@id/textEuroSeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textEuro" />
+
+        <TextView
+            android:id="@+id/textAsian"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_asia_tile"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewEuroStraight" />
+
+        <TextView
+            android:id="@+id/textAsianSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textAsian"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textAsian" />
+
+        <View
+            android:id="@+id/viewAsianStraight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textAsian"
+            app:layout_constraintRight_toRightOf="@id/textAsianSeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textAsian" />
+
+        <TextView
+            android:id="@+id/textAfrican"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_african_tile"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewAsianStraight" />
+
+        <TextView
+            android:id="@+id/textAfricanSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textAfrican"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textAfrican" />
+
+        <View
+            android:id="@+id/viewAfricanStraight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textAfrican"
+            app:layout_constraintRight_toRightOf="@id/textAfricanSeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textAfrican" />
+
+        <TextView
+            android:id="@+id/textNorthern"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_northern_tile"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewAfricanStraight" />
+
+        <TextView
+            android:id="@+id/textNorthernSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textNorthern"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textNorthern" />
+
+        <View
+            android:id="@+id/viewNorthernStraight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textNorthern"
+            app:layout_constraintRight_toRightOf="@id/textNorthernSeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textNorthern" />
+
+        <TextView
+            android:id="@+id/textSouthern"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_southern_tile"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewNorthernStraight" />
+
+        <TextView
+            android:id="@+id/textSouthernSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textSouthern"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textSouthern" />
+
+        <View
+            android:id="@+id/viewSouthernStraight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textSouthern"
+            app:layout_constraintRight_toRightOf="@id/textSouthernSeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textSouthern" />
+
+        <TextView
+            android:id="@+id/textOceania"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_oceania_tile"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewSouthernStraight" />
+
+        <TextView
+            android:id="@+id/textOceaniaSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textOceania"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textOceania" />
+
+        <View
+            android:id="@+id/viewOceaniaStraight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textOceania"
+            app:layout_constraintRight_toRightOf="@id/textOceaniaSeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textOceania" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -3,6 +3,8 @@ package com.example.vaccovid19.data.model
 import com.google.gson.annotations.SerializedName
 
 data class Country(
+    @SerializedName("id")
+    val id: String,
     @SerializedName("Country")
     val country: String,
     @SerializedName("Continent")

@@ -10,4 +10,10 @@
         android:name="com.example.vaccovid19.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home_layout" />
+
+    <fragment
+        android:id="@+id/countryFragment"
+        android:name="com.example.vaccovid19.ui.country.CountryFragment"
+        android:label="CountryFragment"
+        tools:layout="@layout/fragment_country_layout" />
 </navigation>
