@@ -4,6 +4,13 @@
 
     <data>
 
+        <variable
+            name="onClickContinentCallback"
+            type="com.example.vaccovid19.ui.country.OnClickContinentCallback" />
+
+        <variable
+            name="apiConstant"
+            type="com.example.vaccovid19.utils.ApiConstant" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_30"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> onClickContinentCallback.onClickContinent(apiConstant.CONTINENT_EURO_PARAM)}"
             android:paddingVertical="@dimen/dp_15"
             android:text="@string/text_euro_tile"
             android:textColor="@android:color/black"
@@ -66,6 +75,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> onClickContinentCallback.onClickContinent(apiConstant.CONTINENT_ASIA_PARAM)}"
             android:paddingVertical="@dimen/dp_15"
             android:text="@string/text_asia_tile"
             android:textColor="@android:color/black"
@@ -101,6 +112,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> onClickContinentCallback.onClickContinent(apiConstant.CONTINENT_AFRICA_PARAM)}"
             android:paddingVertical="@dimen/dp_15"
             android:text="@string/text_african_tile"
             android:textColor="@android:color/black"
@@ -136,6 +149,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> onClickContinentCallback.onClickContinent(apiConstant.CONTINENT_NORTHERN_PARAM)}"
             android:paddingVertical="@dimen/dp_15"
             android:text="@string/text_northern_tile"
             android:textColor="@android:color/black"
@@ -171,6 +186,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> onClickContinentCallback.onClickContinent(apiConstant.CONTINENT_SOUTHERN_PARAM)}"
             android:paddingVertical="@dimen/dp_15"
             android:text="@string/text_southern_tile"
             android:textColor="@android:color/black"
@@ -206,6 +223,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> onClickContinentCallback.onClickContinent(apiConstant.CONTINENT_OCEANIA_PARAM)}"
             android:paddingVertical="@dimen/dp_15"
             android:text="@string/text_oceania_tile"
             android:textColor="@android:color/black"

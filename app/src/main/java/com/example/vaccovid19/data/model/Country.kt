@@ -1,5 +1,6 @@
 package com.example.vaccovid19.data.model
 
+import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
 
 data class Country(
@@ -19,4 +20,14 @@ data class Country(
     val totalRecovered: Int,
     @SerializedName("ActiveCases")
     val activeCase: Int
-)
+) {
+    companion object {
+        fun getCountryDiffUtil() = object : DiffUtil.ItemCallback<Country>() {
+            override fun areItemsTheSame(oldItem: Country, newItem: Country) =
+                oldItem.id == newItem.id
+
+            override fun areContentsTheSame(oldItem: Country, newItem: Country) = oldItem == newItem
+
+        }
+    }
+}

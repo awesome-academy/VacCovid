@@ -25,4 +25,5 @@
     <string name="text_southern_tile">5. Southern American countries</string>
     <string name="text_oceania_tile">6. Australia and Oceania countries</string>
     <string name="text_more">See all></string>
+    <string name="text_close">X</string>
 </resources>
