@@ -22,7 +22,7 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutB
 
     override fun initData() {
         bindData()
-        binding?.apply {
+        binding.apply {
             homeViewModel.worldData.observe(viewLifecycleOwner, {
                 chartWorldData.show()
                 worldBinding = it
@@ -36,11 +36,11 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutB
     }
 
     private fun bindData() {
-        binding?.numberFormat = NumberFormat
+        binding.numberFormat = NumberFormat
     }
 
     private fun initPieChart() {
-        binding?.chartWorldData?.apply {
+        binding.chartWorldData.apply {
             setUsePercentValues(true)
             centerText = NumberFormat.getNumberFormat(world?.totalCase)
             setCenterTextSize(resources.getDimension(R.dimen.sp_5))
@@ -84,7 +84,7 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutB
 
             val pieDataSet = PieDataSet(entries, "")
             pieDataSet.yValuePosition = PieDataSet.ValuePosition.OUTSIDE_SLICE
-            binding?.chartWorldData?.apply {
+            binding.chartWorldData.apply {
                 resources.apply {
                     pieDataSet.colors = listOf(
                         getColor(R.color.color_royal_blue),
@@ -96,7 +96,7 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutB
                     setDrawValues(true)
                     setValueTextColor(resources.getColor(android.R.color.black))
                     setValueTextSize(resources.getDimension(R.dimen.sp_4))
-                    setValueFormatter(PercentFormatter(binding?.chartWorldData))
+                    setValueFormatter(PercentFormatter(binding.chartWorldData))
                 }
 
                 invalidate()
