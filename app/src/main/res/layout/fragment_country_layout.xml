@@ -6,11 +6,11 @@
 
         <variable
             name="onClickContinentCallback"
-            type="com.example.vaccovid19.ui.country.OnClickContinentCallback" />
+            type="com.sun.vaccovid19.ui.country.OnClickContinentCallback" />
 
         <variable
             name="apiConstant"
-            type="com.example.vaccovid19.utils.ApiConstant" />
+            type="com.sun.vaccovid19.utils.ApiConstant" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
