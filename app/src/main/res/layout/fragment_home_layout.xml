@@ -7,11 +7,11 @@
 
         <variable
             name="worldBinding"
-            type="com.example.vaccovid19.data.model.World" />
+            type="com.sun.vaccovid19.data.model.World" />
 
         <variable
             name="numberFormat"
-            type="com.example.vaccovid19.utils.NumberFormat" />
+            type="com.sun.vaccovid19.utils.NumberFormat" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

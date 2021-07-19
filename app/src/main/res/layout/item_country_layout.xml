@@ -6,7 +6,7 @@
 
         <variable
             name="country"
-            type="com.example.vaccovid19.data.model.Country" />
+            type="com.sun.vaccovid19.data.model.Country" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

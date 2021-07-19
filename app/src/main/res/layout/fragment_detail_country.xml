@@ -7,11 +7,11 @@
 
         <variable
             name="country"
-            type="com.example.vaccovid19.data.model.Country" />
+            type="com.sun.vaccovid19.data.model.Country" />
 
         <variable
             name="clickListener"
-            type="com.example.vaccovid19.ui.detail.OnClickDetailFragment" />
+            type="com.sun.vaccovid19.ui.detail.OnClickDetailFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
