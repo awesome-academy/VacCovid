@@ -24,7 +24,9 @@ data class Country(
     @SerializedName("ActiveCases")
     val activeCase: Int,
     @SerializedName("ThreeLetterSymbol")
-    val symbol: String
+    val symbol: String,
+    @SerializedName("Population")
+    val population: Int
 ) : Parcelable {
     companion object {
         fun getCountryDiffUtil() = object : DiffUtil.ItemCallback<Country>() {

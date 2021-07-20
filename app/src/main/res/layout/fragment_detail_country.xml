@@ -14,49 +14,248 @@
             type="com.sun.vaccovid19.ui.detail.OnClickDetailFragment" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/textCountryTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@color/color_trout"
-            android:gravity="center"
-            android:paddingVertical="@dimen/dp_15"
-            android:text="@{country.country}"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/sp_22"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imageBack"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/dp_10"
-            android:background="?selectableItemBackground"
-            android:contentDescription="@null"
-            android:onClick="@{() -> clickListener.onClickBack()}"
-            android:padding="@dimen/dp_17"
-            android:src="@drawable/ic_arrow"
-            app:layout_constraintBottom_toBottomOf="@id/textCountryTitle"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintLeft_toLeftOf="@id/textCountryTitle"
-            app:layout_constraintTop_toTopOf="@id/textCountryTitle" />
+            <TextView
+                android:id="@+id/textCountryTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/color_trout"
+                android:gravity="center"
+                android:paddingVertical="@dimen/dp_15"
+                android:text="@{country.country}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_22"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/chartCountryData"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/dp_30"
-            android:orientation="vertical"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textCountryTitle" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_8"
+                android:background="?selectableItemBackground"
+                android:contentDescription="@null"
+                android:onClick="@{() -> clickListener.onClickBack()}"
+                android:padding="@dimen/dp_20"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/textCountryTitle"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintLeft_toLeftOf="@id/textCountryTitle"
+                app:layout_constraintTop_toTopOf="@id/textCountryTitle" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chartCountryData"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layout_constraintDimensionRatio="1:0.8"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textCountryTitle" />
+
+            <ProgressBar
+                android:id="@+id/progressCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateDrawable="@drawable/bg_circle_progress"
+                app:layout_constraintBottom_toBottomOf="@id/chartCountryData"
+                app:layout_constraintLeft_toLeftOf="@id/chartCountryData"
+                app:layout_constraintRight_toRightOf="@id/chartCountryData"
+                app:layout_constraintTop_toTopOf="@id/chartCountryData" />
+
+            <TextView
+                android:id="@+id/textPopulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_40"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@id/chartCountryData"
+                app:layout_constraintTop_toBottomOf="@id/chartCountryData"
+                app:population="@{country.population}" />
+
+            <TextView
+                android:id="@+id/textTestPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="@string/text_total_test"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@id/textPopulation"
+                app:layout_constraintTop_toBottomOf="@id/textPopulation" />
+
+            <ProgressBar
+                android:id="@+id/progressRecovered"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_8"
+                android:layout_marginHorizontal="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_15"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_custom"
+                app:layout_constraintLeft_toLeftOf="@id/chartCountryData"
+                app:layout_constraintRight_toRightOf="@id/chartCountryData"
+                app:layout_constraintTop_toBottomOf="@id/textTestPercent"
+                app:progress="@{country.testPercent}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@{String.valueOf(country.testPercent)}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintRight_toRightOf="@id/progressRecovered"
+                app:layout_constraintTop_toBottomOf="@id/progressRecovered" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_60"
+                android:layout_marginBottom="@dimen/dp_30"
+                app:cardCornerRadius="@dimen/dp_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/progressRecovered"
+                app:layout_constraintRight_toRightOf="@id/progressRecovered"
+                app:layout_constraintTop_toBottomOf="@id/progressRecovered">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textStatistic"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_border_10_heavy_metal"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/dp_5"
+                        android:text="@string/text_statistic"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textTotalCase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:text="@string/text_total_case"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textStatistic" />
+
+                    <TextView
+                        android:id="@+id/textDeath"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:text="@string/text_total_death"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="@id/textTotalCase"
+                        app:layout_constraintTop_toBottomOf="@id/textTotalCase" />
+
+                    <TextView
+                        android:id="@+id/textActive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:text="@string/text_total_active"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="@id/textTotalCase"
+                        app:layout_constraintTop_toBottomOf="@id/textDeath" />
+
+                    <TextView
+                        android:id="@+id/textRecovered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_15"
+                        android:layout_marginBottom="@dimen/dp_15"
+                        android:text="@string/text_total_recovered"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="@id/textTotalCase"
+                        app:layout_constraintTop_toBottomOf="@id/textActive" />
+
+                    <TextView
+                        android:id="@+id/textNumberCase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:text="@{String.valueOf(country.totalCase)}"
+                        android:textColor="@color/color_green"
+                        android:textSize="@dimen/sp_16"
+                        app:layout_constraintBottom_toBottomOf="@id/textTotalCase"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/textTotalCase" />
+
+                    <TextView
+                        android:id="@+id/textNumberDeath"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:text="@{String.valueOf(country.totalDeath)}"
+                        android:textColor="@color/color_red_ribbon"
+                        android:textSize="@dimen/sp_16"
+                        app:layout_constraintBottom_toBottomOf="@id/textDeath"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/textDeath" />
+
+                    <TextView
+                        android:id="@+id/textNumberActive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:text="@{String.valueOf(country.activeCase)}"
+                        android:textColor="@color/color_razzle_dazzle_rose"
+                        android:textSize="@dimen/sp_16"
+                        app:layout_constraintBottom_toBottomOf="@id/textActive"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/textActive" />
+
+                    <TextView
+                        android:id="@+id/textNumberRecover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:text="@{String.valueOf(country.totalRecovered)}"
+                        android:textColor="@color/color_royal_blue"
+                        android:textSize="@dimen/sp_16"
+                        app:layout_constraintBottom_toBottomOf="@id/textRecovered"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/textRecovered" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

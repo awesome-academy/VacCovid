@@ -7,6 +7,7 @@
     <color name="color_teal_700">#FF018786</color>
     <color name="color_midnight_blue">#022869</color>
     <color name="color_royal_blue">#253FE9</color>
+    <color name="color_dodger_blue">#237FFB</color>
     <color name="color_mako">#42464C</color>
     <color name="color_bombay">#AEB3BC</color>
     <color name="color_razzle_dazzle_rose">#FB2DBF</color>
@@ -15,5 +16,6 @@
     <color name="color_heavy_metal">#2E332E</color>
     <color name="color_japanese_laurel">#048F04</color>
     <color name="color_trout">#494F5B</color>
+    <color name="color_iron">#D0D3D7</color>
 
 </resources>
