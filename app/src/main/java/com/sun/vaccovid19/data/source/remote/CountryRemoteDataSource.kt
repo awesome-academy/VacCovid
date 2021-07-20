@@ -11,5 +11,5 @@ class CountryRemoteDataSource(
         apiService.getCountriesInContinent(continent)
 
     override suspend fun getCountryPerDay(symbol: String): List<CountryPerDay> =
-        apiService.getCountryPerDay(symbol)
+        apiService.getCountriesPerDay(symbol)
 }

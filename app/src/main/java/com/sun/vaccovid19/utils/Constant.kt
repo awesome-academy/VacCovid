@@ -7,11 +7,14 @@ object ApiConstant {
     const val DATA_NPM_PARAM = "npm-covid-data"
     const val DATA_OVID_PARAM = "covid-ovid-data"
 
+
     const val WORLD_URL = "world"
     const val CONTINENT_URL = "continent"
     const val SIXMONTH_URL = "sixmonth"
+    const val DATA_VACCINE_URL = "vaccines"
 
     const val SYMBOL_COUNTRY_PARAM = "symbol"
+    const val VACCINE_CATEGORY_PARAM = "vaccineCategory"
     const val CONTINENT_EURO_PARAM = "europe"
     const val CONTINENT_ASIA_PARAM = "asia"
     const val CONTINENT_SOUTHERN_PARAM = "southamerica"
