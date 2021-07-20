@@ -26,4 +26,8 @@
     <string name="text_oceania_tile">6. Australia and Oceania countries</string>
     <string name="text_more">See all></string>
     <string name="text_close">X</string>
+    <string name="text_total_test">Percentage of cases tested:</string>
+    <string name="text_statistic">Statistic</string>
+    <string name="text_population">Population: %d</string>
+    <string name="text_dash">-</string>
 </resources>
