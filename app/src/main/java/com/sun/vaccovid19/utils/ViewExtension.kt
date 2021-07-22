@@ -23,3 +23,10 @@ fun ProgressBar.setProgress(testAmount: Float) {
 fun TextView.setText(population: Int) {
     this.text = String.format(this.context.getString(R.string.text_population), population)
 }
+
+@BindingAdapter("app:trimedName")
+fun TextView.setText(name: String) {
+    val words = name.split(this.context.getString(R.string.text_dash)).toMutableList()
+    val newName = words.map { it.replaceFirstChar { it.uppercase() } }.joinToString(" ")
+    this.text = newName
+}

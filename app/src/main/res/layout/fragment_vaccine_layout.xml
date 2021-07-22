@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.sun.vaccovid19.ui.vaccine.OnClickVaccineCategoryCallback" />
+
+        <variable
+            name="apiConstant"
+            type="com.sun.vaccovid19.utils.ApiConstant" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_trout"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_category"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_22"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textClinicalVac"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_30"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> clickListener.onClickCategory(apiConstant.CLINICAL_VACCINE_PARAM)}"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_clinical_vaccine"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textCategory" />
+
+        <TextView
+            android:id="@+id/textClinicalSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textClinicalVac"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textClinicalVac" />
+
+        <View
+            android:id="@+id/viewEuroStraight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textClinicalVac"
+            app:layout_constraintRight_toRightOf="@id/textClinicalSeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textClinicalVac" />
+
+        <TextView
+            android:id="@+id/textPhase1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> clickListener.onClickCategory(apiConstant.PHASE1_VACCINE_PARAM)}"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_phase1_vaccine"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewEuroStraight" />
+
+        <TextView
+            android:id="@+id/textPhase1SeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textPhase1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textPhase1" />
+
+        <View
+            android:id="@+id/viewPhase1Straight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textPhase1"
+            app:layout_constraintRight_toRightOf="@id/textPhase1SeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textPhase1" />
+
+        <TextView
+            android:id="@+id/textPhase2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> clickListener.onClickCategory(apiConstant.PHASE2_VACCINE_PARAM)}"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_phase2_vaccine"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPhase1Straight" />
+
+        <TextView
+            android:id="@+id/textPhase2SeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textPhase2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textPhase2" />
+
+        <View
+            android:id="@+id/viewPhase2Straight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textPhase2"
+            app:layout_constraintRight_toRightOf="@id/textPhase2SeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textPhase2" />
+
+        <TextView
+            android:id="@+id/textPhase3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> clickListener.onClickCategory(apiConstant.PHASE3_VACCINE_PARAM)}"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_phase3_vaccine"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPhase2Straight" />
+
+        <TextView
+            android:id="@+id/textPhase3SeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textPhase3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textPhase3" />
+
+        <View
+            android:id="@+id/viewPhase3Straight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textPhase3"
+            app:layout_constraintRight_toRightOf="@id/textPhase3SeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textPhase3" />
+
+        <TextView
+            android:id="@+id/textPhase4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> clickListener.onClickCategory(apiConstant.PHASE4_VACCINE_PARAM)}"
+            android:paddingVertical="@dimen/dp_15"
+            android:text="@string/text_phase4_vaccine"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPhase3Straight" />
+
+        <TextView
+            android:id="@+id/textPhase4SeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/text_more"
+            android:textColor="@color/color_bombay"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textPhase4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textPhase4" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_bombay"
+            app:layout_constraintLeft_toLeftOf="@id/textPhase4"
+            app:layout_constraintRight_toRightOf="@id/textPhase4SeeAll"
+            app:layout_constraintTop_toBottomOf="@id/textPhase4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
