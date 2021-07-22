@@ -21,4 +21,10 @@ object ApiConstant {
     const val CONTINENT_NORTHERN_PARAM = "northamerica"
     const val CONTINENT_OCEANIA_PARAM = "australia"
     const val CONTINENT_AFRICA_PARAM = "africa"
+
+    const val CLINICAL_VACCINE_PARAM = "get-all-vaccines-pre-clinical"
+    const val PHASE1_VACCINE_PARAM = "get-all-vaccines-phase-i"
+    const val PHASE2_VACCINE_PARAM = "get-all-vaccines-phase-ii"
+    const val PHASE3_VACCINE_PARAM = "get-all-vaccines-phase-iii"
+    const val PHASE4_VACCINE_PARAM = "get-all-vaccines-phase-iv"
 }

@@ -30,4 +30,10 @@
     <string name="text_statistic">Statistic</string>
     <string name="text_population">Population: %d</string>
     <string name="text_dash">-</string>
+    <string name="text_category">Category</string>
+    <string name="text_clinical_vaccine">1. Pre-Clinical Vaccines</string>
+    <string name="text_phase1_vaccine">2. Phase I Vaccines</string>
+    <string name="text_phase2_vaccine">3. Phase II Vaccines</string>
+    <string name="text_phase3_vaccine">4. Phase III Vaccines</string>
+    <string name="text_phase4_vaccine">5. Phase IV Vaccines</string>
 </resources>
