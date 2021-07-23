@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vaccine"
+            type="com.sun.vaccovid19.data.model.Vaccine" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textVaccinInfor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_trout"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_10"
+            android:text="@string/text_infor"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageSave"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_bookmark"
+            app:layout_constraintBottom_toBottomOf="@id/textVaccinInfor"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintRight_toRightOf="@id/textVaccinInfor"
+            app:layout_constraintTop_toTopOf="@id/textVaccinInfor" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text="@string/text_name"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textVaccinInfor" />
+
+        <TextView
+            android:id="@+id/textCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text="@string/text_vaccine_category"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/textNameVaccine" />
+
+        <TextView
+            android:id="@+id/textResearcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text="@string/text_researcher"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/textCategoryVaccine" />
+
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text="@string/text_description"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/textResearcherVaccine" />
+
+        <TextView
+            android:id="@+id/textLastUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_15"
+            android:text="@string/text_last_update"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/textDescriptionVaccine" />
+
+        <TextView
+            android:id="@+id/textNameVaccine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintLeft_toLeftOf="@id/textResearcherVaccine"
+            app:layout_constraintRight_toRightOf="@id/textCategoryVaccine"
+            app:layout_constraintTop_toTopOf="@id/textName"
+            app:trimedName="@{vaccine.name}" />
+
+        <TextView
+            android:id="@+id/textCategoryVaccine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="@{vaccine.category}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintLeft_toLeftOf="@id/textResearcherVaccine"
+            app:layout_constraintRight_toRightOf="@id/textResearcherVaccine"
+            app:layout_constraintTop_toTopOf="@id/textCategory" />
+
+        <TextView
+            android:id="@+id/textResearcherVaccine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_15"
+            android:singleLine="false"
+            android:text="@{vaccine.developer}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintLeft_toRightOf="@id/textResearcher"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textResearcher" />
+
+        <TextView
+            android:id="@+id/textDescriptionVaccine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="@{vaccine.description}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintLeft_toLeftOf="@id/textResearcherVaccine"
+            app:layout_constraintRight_toRightOf="@id/textResearcherVaccine"
+            app:layout_constraintTop_toTopOf="@id/textDescription" />
+
+        <TextView
+            android:id="@+id/textUpdateVaccine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="@{vaccine.lastUpdate.substring(0,10)}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@id/textLastUpdate"
+            app:layout_constraintLeft_toLeftOf="@id/textResearcherVaccine"
+            app:layout_constraintTop_toTopOf="@id/textLastUpdate" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

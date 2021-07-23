@@ -28,3 +28,7 @@ object ApiConstant {
     const val PHASE3_VACCINE_PARAM = "get-all-vaccines-phase-iii"
     const val PHASE4_VACCINE_PARAM = "get-all-vaccines-phase-iv"
 }
+
+object AppConstant {
+    const val BLANK = ""
+}
