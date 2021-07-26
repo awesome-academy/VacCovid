@@ -38,8 +38,15 @@
             app:argType="com.sun.vaccovid19.data.model.Country" />
     </fragment>
 
-    <fragment android:id="@+id/vaccineFragment"
+    <fragment
+        android:id="@+id/vaccineFragment"
         android:name="com.sun.vaccovid19.ui.vaccine.VaccineFragment"
         android:label="VaccineFragment"
-        tools:layout="@layout/fragment_vaccine_layout"/>
+        tools:layout="@layout/fragment_vaccine_layout" />
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.sun.vaccovid19.ui.news.NewsFragment"
+        android:label="NewsFragment"
+        tools:layout="@layout/fragment_news_layout" />
 </navigation>
