@@ -42,4 +42,7 @@
     <string name="text_phase2_vaccine">3. Phase II Vaccines</string>
     <string name="text_phase3_vaccine">4. Phase III Vaccines</string>
     <string name="text_phase4_vaccine">5. Phase IV Vaccines</string>
+    <string name="text_health_new">Health news</string>
+    <string name="text_covid_new">Coronavirus news</string>
+    <string name="text_vaccine_new">Vaccine news</string>
 </resources>

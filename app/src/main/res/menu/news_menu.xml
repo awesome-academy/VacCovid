@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/healthNews"
+        android:title="@string/text_health_new" />
+    <item
+        android:id="@+id/covidNews"
+        android:title="@string/text_covid_new" />
+    <item
+        android:id="@+id/vaccineNews"
+        android:title="@string/text_vaccine_new" />
+</menu>

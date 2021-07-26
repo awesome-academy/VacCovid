@@ -12,6 +12,7 @@ object ApiConstant {
     const val CONTINENT_URL = "continent"
     const val SIXMONTH_URL = "sixmonth"
     const val DATA_VACCINE_URL = "vaccines"
+    const val NEWS_URL = "news"
 
     const val SYMBOL_COUNTRY_PARAM = "symbol"
     const val VACCINE_CATEGORY_PARAM = "vaccineCategory"
@@ -27,6 +28,10 @@ object ApiConstant {
     const val PHASE2_VACCINE_PARAM = "get-all-vaccines-phase-ii"
     const val PHASE3_VACCINE_PARAM = "get-all-vaccines-phase-iii"
     const val PHASE4_VACCINE_PARAM = "get-all-vaccines-phase-iv"
+
+    const val TYPE_NEWS_PARAM = "typenews"
+    const val PAGE_NEWS_PARAM = "pagenews"
+
 }
 
 object AppConstant {
