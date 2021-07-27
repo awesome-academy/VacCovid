@@ -31,9 +31,13 @@ object ApiConstant {
 
     const val TYPE_NEWS_PARAM = "typenews"
     const val PAGE_NEWS_PARAM = "pagenews"
+    const val HEALTH_NEWS_PARAM = "get-health-news"
+    const val VACCINE_NEWS_PARAM = "get-vaccine-news"
+    const val COVID_NEWS_PARAM = "get-coronavirus-news"
 
 }
 
 object AppConstant {
     const val BLANK = ""
+    const val FIRST_PAGE = 1
 }

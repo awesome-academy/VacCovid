@@ -23,5 +23,5 @@ interface ApiService {
     suspend fun getNews(
         @Path(ApiConstant.TYPE_NEWS_PARAM) type: String,
         @Path(ApiConstant.PAGE_NEWS_PARAM) page: String
-    ): List<NewsResponse>
+    ): NewsResponse
 }

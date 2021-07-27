@@ -1,10 +1,12 @@
 package com.sun.vaccovid19.utils
 
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.sun.vaccovid19.R
 import com.sun.vaccovid19.base.SubmitData
 
@@ -36,4 +38,13 @@ fun TextView.setText(name: String) {
 @BindingAdapter("app:data")
 fun <T> RecyclerView.setData(data: List<T>?) {
     (adapter as SubmitData<T>).submitData(data)
+}
+
+@BindingAdapter("app:imageUrl")
+fun ImageView.setImage(url: String) {
+    Glide.with(context)
+        .load(url)
+        .error(R.drawable.ic_launcher_background)
+        .placeholder(R.drawable.ic_launcher_background)
+        .into(this)
 }
