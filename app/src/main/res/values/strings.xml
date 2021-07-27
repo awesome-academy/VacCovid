@@ -18,12 +18,14 @@
     <string name="text_other">Other</string>
     <string name="text_daily_increase">Daily increase:</string>
     <string name="text_new_recover">New recovered:</string>
+
     <string name="text_euro_tile">1. European countries</string>
     <string name="text_asia_tile">2. Asian countries</string>
     <string name="text_african_tile">3. African countries</string>
     <string name="text_northern_tile">4. Northern American countries</string>
     <string name="text_southern_tile">5. Southern American countries</string>
     <string name="text_oceania_tile">6. Australia and Oceania countries</string>
+
     <string name="text_more">See all></string>
     <string name="text_close">X</string>
     <string name="text_total_test">Percentage of cases tested:</string>
@@ -32,17 +34,23 @@
     <string name="text_dash">-</string>
     <string name="text_category">Category</string>
     <string name="text_infor">Information</string>
+
     <string name="text_name">Name:</string>
     <string name="text_researcher">Researcher/Developer:</string>
     <string name="text_description">Description:</string>
     <string name="text_last_update">Last update:</string>
+
     <string name="text_vaccine_category">Category:</string>
     <string name="text_clinical_vaccine">1. Pre-Clinical Vaccines</string>
     <string name="text_phase1_vaccine">2. Phase I Vaccines</string>
     <string name="text_phase2_vaccine">3. Phase II Vaccines</string>
     <string name="text_phase3_vaccine">4. Phase III Vaccines</string>
     <string name="text_phase4_vaccine">5. Phase IV Vaccines</string>
+
     <string name="text_health_new">Health news</string>
     <string name="text_covid_new">Coronavirus news</string>
     <string name="text_vaccine_new">Vaccine news</string>
+
+    <string name="text_one">1</string>
+    <string name="text_page_number">Page %d</string>
 </resources>
