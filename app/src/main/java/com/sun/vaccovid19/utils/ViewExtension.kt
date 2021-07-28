@@ -25,7 +25,10 @@ fun ProgressBar.setProgress(testAmount: Float) {
 
 @BindingAdapter("app:population")
 fun TextView.setText(population: Int) {
-    this.text = String.format(this.context.getString(R.string.text_population), population)
+    this.text = String.format(
+        this.context.getString(R.string.text_population),
+        NumberFormat.getNumberFormat(population)
+    )
 }
 
 @BindingAdapter("app:trimedName")
