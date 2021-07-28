@@ -30,7 +30,7 @@
     <string name="text_close">X</string>
     <string name="text_total_test">Percentage of cases tested:</string>
     <string name="text_statistic">Statistic</string>
-    <string name="text_population">Population: %d</string>
+    <string name="text_population">Population: %s</string>
     <string name="text_dash">-</string>
     <string name="text_category">Category</string>
     <string name="text_infor">Information</string>

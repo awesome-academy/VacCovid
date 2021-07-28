@@ -1,10 +1,9 @@
 package com.sun.vaccovid19.ui.news
 
 import android.graphics.Color
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.sun.vaccovid19.R
 import com.sun.vaccovid19.base.BaseFragment
 import com.sun.vaccovid19.data.model.News
@@ -12,22 +11,32 @@ import com.sun.vaccovid19.databinding.FragmentNewsLayoutBinding
 import com.sun.vaccovid19.utils.ApiConstant
 import com.sun.vaccovid19.utils.AppConstant
 import com.sun.vaccovid19.utils.hide
+import com.sun.vaccovid19.utils.show
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NewsFragment : BaseFragment<FragmentNewsLayoutBinding>(FragmentNewsLayoutBinding::inflate) {
 
     private val newsViewModel: NewsViewModel by viewModel()
     private var adapter: NewsAdapter? = NewsAdapter(this::onClickNewsItem)
-    private var page = ""
+    private var page = AppConstant.FIRST_PAGE
     private var type = ""
 
     override fun initData() {
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbarNews)
         setHasOptionsMenu(true)
         binding.toolbarNews.overflowIcon?.setTint(Color.WHITE)
-        setPageNumberText(AppConstant.FIRST_PAGE)
-        setNewsType(ApiConstant.COVID_NEWS_PARAM, getString(R.string.text_one))
+        setPageNumberText(page)
+        setNewsTypeAndPage(ApiConstant.COVID_NEWS_PARAM, false)
         bindData()
+        newsViewModel.pageStatus.observe(viewLifecycleOwner, Observer {
+            if (it && page < AppConstant.END_PAGE) {
+                page++
+                setNewsTypeAndPage(type, true)
+            } else if (page > AppConstant.FIRST_PAGE) {
+                page--
+                setNewsTypeAndPage(type, true)
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -37,17 +46,17 @@ class NewsFragment : BaseFragment<FragmentNewsLayoutBinding>(FragmentNewsLayoutB
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.vaccineNews -> setNewsType(
+            R.id.vaccineNews -> setNewsTypeAndPage(
                 ApiConstant.VACCINE_NEWS_PARAM,
-                getString(R.string.text_one)
+                false
             )
-            R.id.healthNews -> setNewsType(
+            R.id.healthNews -> setNewsTypeAndPage(
                 ApiConstant.HEALTH_NEWS_PARAM,
-                getString(R.string.text_one)
+                false
             )
-            R.id.covidNews -> setNewsType(
+            R.id.covidNews -> setNewsTypeAndPage(
                 ApiConstant.COVID_NEWS_PARAM,
-                getString(R.string.text_one)
+                false
             )
         }
         return super.onOptionsItemSelected(item)
@@ -71,10 +80,18 @@ class NewsFragment : BaseFragment<FragmentNewsLayoutBinding>(FragmentNewsLayoutB
         }
     }
 
-    private fun setNewsType(type: String, page: String) {
+    private fun setNewsTypeAndPage(type: String, isNextPage: Boolean) {
         this.type = type
-        this.page = page
-        newsViewModel.setNewsTypeAndPage(this.type, this.page)
+        if (!isNextPage) {
+            page = AppConstant.FIRST_PAGE
+        }
+        binding.apply {
+            progressNews.show()
+            if (page > AppConstant.FIRST_PAGE) imageLeft.show() else imageLeft.hide()
+            if (page < AppConstant.END_PAGE) imageRight.show() else imageRight.hide()
+        }
+        setPageNumberText(page)
+        newsViewModel.setNewsTypeAndPage(this.type, page.toString())
     }
 
     private fun setPageNumberText(page: Int) {
@@ -82,6 +99,12 @@ class NewsFragment : BaseFragment<FragmentNewsLayoutBinding>(FragmentNewsLayoutB
     }
 
     private fun onClickNewsItem(news: News) {
-
+        binding.webNews.apply {
+            show()
+            settings.javaScriptEnabled = true
+            settings.setSupportZoom(true)
+            canGoBack()
+            loadUrl(news.link)
+        }
     }
 }

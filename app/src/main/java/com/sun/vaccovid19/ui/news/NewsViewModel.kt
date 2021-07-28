@@ -16,6 +16,9 @@ class NewsViewModel(private val newsRepo: NewsRepository) : BaseViewModel() {
     val news: LiveData<List<News>>
 
     private val _type = MutableLiveData<Pair<String, String>>()
+    private val _pageStatus = MutableLiveData<Boolean>()
+    val pageStatus: LiveData<Boolean>
+        get() = _pageStatus
 
     init {
         news = Transformations.switchMap(_type, this::getNews)
@@ -30,5 +33,10 @@ class NewsViewModel(private val newsRepo: NewsRepository) : BaseViewModel() {
 
     fun setNewsTypeAndPage(type: String, page: String) {
         _type.value = Pair(type, page)
+    }
+
+    fun setOnClickPage(status: Boolean): LiveData<Boolean> {
+        _pageStatus.value = status
+        return _pageStatus
     }
 }

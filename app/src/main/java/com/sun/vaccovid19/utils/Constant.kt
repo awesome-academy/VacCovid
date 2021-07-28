@@ -40,4 +40,5 @@ object ApiConstant {
 object AppConstant {
     const val BLANK = ""
     const val FIRST_PAGE = 1
+    const val END_PAGE = 5
 }
