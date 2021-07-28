@@ -5,7 +5,7 @@ import com.sun.vaccovid19.data.VaccineDataSource
 
 class VaccineRemoteDataSource(
     private val apiService: ApiService
-) : VaccineDataSource {
+) : VaccineDataSource.Remote {
 
     override suspend fun getVaccinesByCategory(category: String) =
         apiService.getVaccinesByCategory(category)

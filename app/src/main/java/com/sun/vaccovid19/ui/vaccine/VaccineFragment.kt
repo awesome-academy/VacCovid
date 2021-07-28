@@ -24,7 +24,7 @@ class VaccineFragment :
 
     override fun initData() {
         bindData()
-        vaccineViewModel.vaccines.observe(viewLifecycleOwner, { vaccineDialog?.receivedData(it) })
+        vaccineViewModel.remoteVaccines.observe(viewLifecycleOwner, { vaccineDialog?.receivedData(it) })
     }
 
     override fun onClickCategory(category: String) {

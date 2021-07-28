@@ -9,6 +9,7 @@ import com.sun.vaccovid19.data.repository.CountryRepository
 import com.sun.vaccovid19.data.repository.NewsRepository
 import com.sun.vaccovid19.data.repository.VaccineRepository
 import com.sun.vaccovid19.data.repository.WorldRepository
+import com.sun.vaccovid19.data.source.local.VaccineLocalDataSource
 import com.sun.vaccovid19.data.source.remote.CountryRemoteDataSource
 import com.sun.vaccovid19.data.source.remote.NewsRemoteDataSource
 import com.sun.vaccovid19.data.source.remote.VaccineRemoteDataSource
@@ -18,11 +19,12 @@ import org.koin.dsl.module
 val repositoryModule = module {
     single<WordDataSource> { WorldRemoteDataSource(get()) }
     single<CountryDataSource> { CountryRemoteDataSource(get()) }
-    single<VaccineDataSource> { VaccineRemoteDataSource(get()) }
+    single<VaccineDataSource.Remote> { VaccineRemoteDataSource(get()) }
+    single<VaccineDataSource.Local> { VaccineLocalDataSource(get()) }
     single<NewsDataSource> { NewsRemoteDataSource(get()) }
 
     single { WorldRepository(get()) }
     single { CountryRepository(get()) }
-    single { VaccineRepository(get()) }
+    single { VaccineRepository(get(), get()) }
     single { NewsRepository(get()) }
 }
