@@ -1,18 +1,19 @@
 package com.sun.vaccovid19.ui.home
 
-import com.sun.vaccovid19.R
-import com.sun.vaccovid19.base.BaseFragment
-import com.sun.vaccovid19.data.model.World
-import com.sun.vaccovid19.databinding.FragmentHomeLayoutBinding
-import com.sun.vaccovid19.utils.NumberFormat
-import com.sun.vaccovid19.utils.hide
-import com.sun.vaccovid19.utils.show
+import androidx.navigation.fragment.findNavController
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
+import com.sun.vaccovid19.R
+import com.sun.vaccovid19.base.BaseFragment
+import com.sun.vaccovid19.data.model.World
+import com.sun.vaccovid19.databinding.FragmentHomeLayoutBinding
+import com.sun.vaccovid19.utils.hide
+import com.sun.vaccovid19.utils.show
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.DecimalFormat
 
 @Suppress("DEPRECATION")
 class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutBinding::inflate) {
@@ -21,7 +22,6 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutB
     private var world: World? = null
 
     override fun initData() {
-        bindData()
         binding.apply {
             homeViewModel.worldData.observe(viewLifecycleOwner, {
                 chartWorldData.show()
@@ -31,18 +31,18 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding>(FragmentHomeLayoutB
                 initChartDataset()
                 progressHome.hide()
             })
+            imageSaved.setOnClickListener {
+                val action = HomeFragmentDirections.actionHomeFragmentToVaccineFragment(true)
+                findNavController().navigate(action)
+            }
         }
 
-    }
-
-    private fun bindData() {
-        binding.numberFormat = NumberFormat
     }
 
     private fun initPieChart() {
         binding.chartWorldData.apply {
             setUsePercentValues(true)
-            centerText = NumberFormat.getNumberFormat(world?.totalCase)
+            centerText = DecimalFormat("#,###,###").format(world?.totalCase)
             setCenterTextSize(resources.getDimension(R.dimen.sp_5))
             setCenterTextColor(resources.getColor(R.color.color_green))
             isDrawHoleEnabled = true

@@ -9,6 +9,10 @@
         <variable
             name="vaccineViewModel"
             type="com.sun.vaccovid19.ui.vaccine.VaccineViewModel" />
+
+        <variable
+            name="isFromLocal"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_15"
             android:overScrollMode="never"
-            app:data="@{vaccineViewModel.remoteVaccines}"
+            app:data="@{isFromLocal ? vaccineViewModel.localVaccines : vaccineViewModel.remoteVaccines}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

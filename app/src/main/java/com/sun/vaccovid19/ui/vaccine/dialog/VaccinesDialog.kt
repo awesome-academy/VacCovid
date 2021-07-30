@@ -11,7 +11,7 @@ import com.sun.vaccovid19.data.model.Vaccine
 import com.sun.vaccovid19.databinding.DialogVaccineLayoutBinding
 import com.sun.vaccovid19.ui.vaccine.VaccineAdapter
 import com.sun.vaccovid19.ui.vaccine.VaccineViewModel
-import com.sun.vaccovid19.utils.AppConstant
+import com.sun.vaccovid19.utils.AppConstant.BLANK
 import com.sun.vaccovid19.utils.hide
 import java.util.*
 import kotlin.concurrent.schedule
@@ -31,6 +31,7 @@ class VaccinesDialog(
     }
     private val adapter = VaccineAdapter(this::onClickVaccine)
     private val vaccines = mutableListOf<Vaccine>()
+    private var isFromLocal = false
 
     init {
         initDialog()
@@ -50,7 +51,7 @@ class VaccinesDialog(
 
     override fun dismiss() {
         binding.searchVaccine.apply {
-            setQuery(AppConstant.BLANK, false)
+            setQuery(BLANK, false)
             clearFocus()
         }
         super.dismiss()
@@ -90,10 +91,15 @@ class VaccinesDialog(
         adapter.submitList(vaccinesFilter)
     }
 
-    fun receivedData(vaccines: List<Vaccine>) {
+    fun receivedData(vaccines: List<Vaccine>, isFromLocal: Boolean) {
         if (vaccines.isNotEmpty()) {
             binding.progressVaccine.hide()
-            this.vaccines.addAll(vaccines)
+            this.isFromLocal = isFromLocal
+            binding.isFromLocal = isFromLocal
+            this.vaccines.apply {
+                clear()
+                addAll(vaccines)
+            }
         }
     }
 }

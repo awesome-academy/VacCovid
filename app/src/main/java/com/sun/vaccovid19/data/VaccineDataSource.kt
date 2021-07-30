@@ -9,9 +9,9 @@ interface VaccineDataSource {
     }
 
     interface Local {
-        suspend fun getAllSavedVaccines(): List<Vaccine>
         suspend fun isVaccineSaved(name: String): Vaccine
         suspend fun saveVaccine(vaccine: Vaccine)
-        suspend fun unSaveVaccine(vaccine: Vaccine)
+        suspend fun unSaveVaccine(name: String)
+        suspend fun getAllVaccinesByCategory(category: String): List<Vaccine>
     }
 }

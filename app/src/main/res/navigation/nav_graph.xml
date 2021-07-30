@@ -9,7 +9,16 @@
         android:id="@+id/homeFragment"
         android:name="com.sun.vaccovid19.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home_layout" />
+        tools:layout="@layout/fragment_home_layout">
+
+        <action
+            android:id="@+id/action_homeFragment_to_vaccineFragment"
+            app:destination="@id/vaccineFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
 
     <fragment
         android:id="@+id/countryFragment"
@@ -42,7 +51,12 @@
         android:id="@+id/vaccineFragment"
         android:name="com.sun.vaccovid19.ui.vaccine.VaccineFragment"
         android:label="VaccineFragment"
-        tools:layout="@layout/fragment_vaccine_layout" />
+        tools:layout="@layout/fragment_vaccine_layout">
+
+        <argument
+            android:name="isFromLocal"
+            app:argType="boolean" />
+    </fragment>
 
     <fragment
         android:id="@+id/newsFragment"

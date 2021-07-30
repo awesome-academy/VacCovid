@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sun.vaccovid19.R
 import com.sun.vaccovid19.base.SubmitData
+import java.text.DecimalFormat
 
 fun View.show() {
     visibility = View.VISIBLE
@@ -27,7 +28,7 @@ fun ProgressBar.setProgress(testAmount: Float) {
 fun TextView.setText(population: Int) {
     this.text = String.format(
         this.context.getString(R.string.text_population),
-        NumberFormat.getNumberFormat(population)
+        DecimalFormat("#,###,###").format(population)
     )
 }
 
@@ -50,4 +51,14 @@ fun ImageView.setImage(url: String) {
         .error(R.drawable.ic_launcher_background)
         .placeholder(R.drawable.ic_launcher_background)
         .into(this)
+}
+
+@BindingAdapter("app:formatNumber")
+fun TextView.setTextFormat(number: Int?) {
+    this.text = DecimalFormat("#,###,###").format(number)
+}
+
+@BindingAdapter("app:formatNumberIncrease")
+fun TextView.setTextIncrease(number: Int?) {
+    this.text = "+" + DecimalFormat("#,###,###").format(number)
 }

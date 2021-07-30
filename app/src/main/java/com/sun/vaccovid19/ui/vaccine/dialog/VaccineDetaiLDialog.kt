@@ -2,6 +2,7 @@ package com.sun.vaccovid19.ui.vaccine.dialog
 
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
 import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
@@ -13,6 +14,7 @@ class VaccineDetaiLDialog(context: Context) : Dialog(context) {
     private val binding: DialogVaccineDetailBinding by lazy {
         DialogVaccineDetailBinding.inflate(layoutInflater)
     }
+    var callBack: OnEventToFragment? = null
     var vaccine: Vaccine? = null
 
     init {
@@ -35,9 +37,20 @@ class VaccineDetaiLDialog(context: Context) : Dialog(context) {
             )
             setGravity(Gravity.CENTER)
         }
+        binding.imageSave.setOnClickListener {
+            callBack?.onClickSave()
+        }
     }
 
     private fun bindData() {
         binding.vaccine = vaccine
+    }
+
+    fun setSavedVaccineChecked(isSaved: Boolean) {
+        binding.imageSave.setColorFilter(if (isSaved) Color.RED else Color.WHITE)
+    }
+
+    interface OnEventToFragment {
+        fun onClickSave()
     }
 }

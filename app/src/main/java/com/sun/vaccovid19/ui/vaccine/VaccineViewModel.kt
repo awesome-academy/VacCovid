@@ -17,18 +17,18 @@ class VaccineViewModel(private val vaccineRepo: VaccineRepository) : BaseViewMod
 
     private val _localVaccines = MutableLiveData<List<Vaccine>>(emptyList())
     val localVaccines: LiveData<List<Vaccine>>
-        get() = _localVaccines
 
     private val _isVaccineSaved = MutableLiveData<Vaccine>()
     val isVaccineSaved: LiveData<Vaccine>
 
     private val _category = MutableLiveData<String>()
+    private val _pairCategory = MutableLiveData<Pair<String, String>>()
     private val _vaccineName = MutableLiveData<String>()
 
     init {
         remoteVaccines = Transformations.switchMap(_category, this::getVaccinesByCategory)
         isVaccineSaved = Transformations.switchMap(_vaccineName, this::isVaccineSaved)
-        getAllSavedVaccines()
+        localVaccines = Transformations.switchMap(_pairCategory, this::getAllSavedVaccines)
     }
 
     private fun getVaccinesByCategory(category: String): LiveData<List<Vaccine>> {
@@ -45,10 +45,15 @@ class VaccineViewModel(private val vaccineRepo: VaccineRepository) : BaseViewMod
         return _isVaccineSaved
     }
 
-    private fun getAllSavedVaccines() {
+    private fun getAllSavedVaccines(category: Pair<String, String>): LiveData<List<Vaccine>> {
         viewModelScope.launch(Dispatchers.IO + exceptionHandler) {
-            _localVaccines.postValue(vaccineRepo.getAllSavedVaccines())
+            _localVaccines.postValue(
+                vaccineRepo.getAllLocalVaccinesByCategory(category.first).plus(
+                    vaccineRepo.getAllLocalVaccinesByCategory(category.second)
+                )
+            )
         }
+        return _localVaccines
     }
 
     fun saveVaccine(vaccine: Vaccine) {
@@ -57,14 +62,18 @@ class VaccineViewModel(private val vaccineRepo: VaccineRepository) : BaseViewMod
         }
     }
 
-    fun unSaveVaccine(vaccine: Vaccine) {
+    fun unSaveVaccine(name: String) {
         viewModelScope.launch(Dispatchers.IO + exceptionHandler) {
-            vaccineRepo.unSaveVaccine(vaccine)
+            vaccineRepo.unSaveVaccine(name)
         }
     }
 
-    fun setVaccineCategory(category: String) {
+    fun setVaccineRemoteCategory(category: String) {
         _category.value = category
+    }
+
+    fun setVaccineLocalCategory(pairCategory: Pair<String, String>) {
+        _pairCategory.value = pairCategory
     }
 
     fun setVaccineName(name: String) {

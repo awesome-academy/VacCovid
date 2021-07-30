@@ -35,7 +35,11 @@ data class Vaccine(
 
     @SerializedName("lastUpdated")
     @ColumnInfo(name = "lastUpdated")
-    val lastUpdate: String
+    val lastUpdate: String,
+
+    @SerializedName("phase")
+    @ColumnInfo(name = "phase")
+    val phase: String
 ) {
     companion object {
 
