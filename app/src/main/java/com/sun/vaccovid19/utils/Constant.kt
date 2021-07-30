@@ -29,6 +29,14 @@ object ApiConstant {
     const val PHASE3_VACCINE_PARAM = "get-all-vaccines-phase-iii"
     const val PHASE4_VACCINE_PARAM = "get-all-vaccines-phase-iv"
 
+    const val VACCINE_PHASE_1 = "Phase I"
+    const val VACCINE_PHASE_2 = "Phase II"
+    const val VACCINE_PHASE_3 = "Phase III"
+    const val VACCINE_PHASE_23 = "Phase II/III"
+    const val VACCINE_PHASE_12 = "Phase I/II"
+    const val VACCINE_PHASE_AUTHORIZED = "Authorized"
+    const val VACCINE_PHASE_CLINICAL = "Pre-clinical"
+
     const val TYPE_NEWS_PARAM = "typenews"
     const val PAGE_NEWS_PARAM = "pagenews"
     const val HEALTH_NEWS_PARAM = "get-health-news"
@@ -41,4 +49,5 @@ object AppConstant {
     const val BLANK = ""
     const val FIRST_PAGE = 1
     const val END_PAGE = 5
+    const val IS_FROM_LOCAL = "isFromLocal"
 }

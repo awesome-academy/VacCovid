@@ -2,5 +2,6 @@ package com.sun.vaccovid19.ui.vaccine
 
 interface OnClickVaccineCategoryCallback {
 
-    fun onClickCategory(category: String)
+    fun onClickRemoteCategory(category: String)
+    fun onClickLocalCategory(firstCategory: String, secondCategory: String)
 }

@@ -212,9 +212,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/dp_10"
-                        android:text="@{String.valueOf(country.totalCase)}"
                         android:textColor="@color/color_green"
                         android:textSize="@dimen/sp_16"
+                        app:formatNumber="@{country.totalCase}"
                         app:layout_constraintBottom_toBottomOf="@id/textTotalCase"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="@id/textTotalCase" />
@@ -224,9 +224,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/dp_10"
-                        android:text="@{String.valueOf(country.totalDeath)}"
                         android:textColor="@color/color_red_ribbon"
                         android:textSize="@dimen/sp_16"
+                        app:formatNumber="@{country.totalDeath}"
                         app:layout_constraintBottom_toBottomOf="@id/textDeath"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="@id/textDeath" />
@@ -236,9 +236,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/dp_10"
-                        android:text="@{String.valueOf(country.activeCase)}"
                         android:textColor="@color/color_razzle_dazzle_rose"
                         android:textSize="@dimen/sp_16"
+                        app:formatNumber="@{country.activeCase}"
                         app:layout_constraintBottom_toBottomOf="@id/textActive"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="@id/textActive" />
@@ -248,9 +248,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/dp_10"
-                        android:text="@{String.valueOf(country.totalRecovered)}"
                         android:textColor="@color/color_royal_blue"
                         android:textSize="@dimen/sp_16"
+                        app:formatNumber="@{country.totalRecovered}"
                         app:layout_constraintBottom_toBottomOf="@id/textRecovered"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="@id/textRecovered" />

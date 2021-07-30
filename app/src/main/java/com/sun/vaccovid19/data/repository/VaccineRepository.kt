@@ -11,14 +11,14 @@ class VaccineRepository(
     suspend fun getVaccinesByCategory(category: String) =
         vaccineDataSourceRemote.getVaccinesByCategory(category)
 
-    suspend fun getAllSavedVaccines() =
-        vaccineDataSourceLocal.getAllSavedVaccines()
+    suspend fun getAllLocalVaccinesByCategory(category: String) =
+        vaccineDataSourceLocal.getAllVaccinesByCategory(category)
 
     suspend fun saveVaccine(vaccine: Vaccine) =
         vaccineDataSourceLocal.saveVaccine(vaccine)
 
-    suspend fun unSaveVaccine(vaccine: Vaccine) =
-        vaccineDataSourceLocal.unSaveVaccine(vaccine)
+    suspend fun unSaveVaccine(name: String) =
+        vaccineDataSourceLocal.unSaveVaccine(name)
 
     suspend fun isVaccineSaved(name: String) =
         vaccineDataSourceLocal.isVaccineSaved(name)

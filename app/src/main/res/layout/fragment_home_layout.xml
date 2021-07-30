@@ -8,10 +8,6 @@
         <variable
             name="worldBinding"
             type="com.sun.vaccovid19.data.model.World" />
-
-        <variable
-            name="numberFormat"
-            type="com.sun.vaccovid19.utils.NumberFormat" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -113,9 +109,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_20"
                     android:layout_marginEnd="@dimen/dp_20"
-                    android:text="@{numberFormat.getNumberFormat(worldBinding.totalCase)}"
                     android:textColor="@color/color_green"
                     android:textSize="@dimen/sp_22"
+                    app:formatNumber="@{worldBinding.totalCase}"
                     app:layout_constraintRight_toRightOf="@id/imageTotal"
                     app:layout_constraintTop_toBottomOf="@id/textTotalCase" />
 
@@ -136,10 +132,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_15"
                     android:layout_marginBottom="@dimen/dp_20"
-                    android:text="@{numberFormat.getNumberFormatIncrease(worldBinding.newCases)}"
                     android:textColor="@color/color_japanese_laurel"
                     android:textSize="@dimen/sp_16"
                     android:textStyle="italic"
+                    app:formatNumberIncrease="@{worldBinding.newCases}"
                     app:layout_constraintBottom_toBottomOf="@id/imageTotal"
                     app:layout_constraintRight_toRightOf="@id/textNumberCase"
                     app:layout_constraintTop_toBottomOf="@id/textNumberCase" />
@@ -185,9 +181,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/dp_20"
                     android:layout_marginEnd="@dimen/dp_20"
-                    android:text="@{numberFormat.getNumberFormat(worldBinding.totalDeath)}"
                     android:textColor="@color/color_red_ribbon"
                     android:textSize="@dimen/sp_18"
+                    app:formatNumber="@{worldBinding.totalDeath}"
                     app:layout_constraintBottom_toBottomOf="@id/imageDeath"
                     app:layout_constraintRight_toRightOf="@id/imageDeath"
                     app:layout_constraintTop_toBottomOf="@id/textTotalDeath" />
@@ -231,9 +227,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/dp_20"
                     android:layout_marginEnd="@dimen/dp_20"
-                    android:text="@{numberFormat.getNumberFormat(worldBinding.activeCase)}"
                     android:textColor="@color/color_razzle_dazzle_rose"
                     android:textSize="@dimen/sp_18"
+                    app:formatNumber="@{worldBinding.activeCase}"
                     app:layout_constraintBottom_toBottomOf="@id/imageActive"
                     app:layout_constraintRight_toRightOf="@id/imageActive"
                     app:layout_constraintTop_toBottomOf="@id/textTotalActive" />
@@ -280,9 +276,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_20"
                     android:layout_marginEnd="@dimen/dp_20"
-                    android:text="@{numberFormat.getNumberFormat(worldBinding.totalRecovered)}"
                     android:textColor="@color/color_royal_blue"
                     android:textSize="@dimen/sp_22"
+                    app:formatNumber="@{worldBinding.totalRecovered}"
                     app:layout_constraintRight_toRightOf="@id/imageRecover"
                     app:layout_constraintTop_toBottomOf="@id/textTotalRecover" />
 
@@ -302,10 +298,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_15"
                     android:layout_marginBottom="@dimen/dp_20"
-                    android:text="@{numberFormat.getNumberFormatIncrease(worldBinding.newRecovered)}"
                     android:textColor="@color/color_royal_blue"
                     android:textSize="@dimen/sp_16"
                     android:textStyle="italic"
+                    app:formatNumberIncrease="@{worldBinding.newRecovered}"
                     app:layout_constraintBottom_toBottomOf="@id/imageRecover"
                     app:layout_constraintRight_toRightOf="@id/textNumberRecover"
                     app:layout_constraintTop_toBottomOf="@id/textNumberRecover" />
