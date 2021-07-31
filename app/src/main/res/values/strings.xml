@@ -53,4 +53,6 @@
 
     <string name="text_one">1</string>
     <string name="text_page_number">Page %d</string>
+    <string name="text_connect">Connect</string>
+    <string name="text_cancel">Cancel</string>
 </resources>

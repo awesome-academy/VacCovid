@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    android:id="@+id/nav_graph">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -63,4 +62,10 @@
         android:name="com.sun.vaccovid19.ui.news.NewsFragment"
         android:label="NewsFragment"
         tools:layout="@layout/fragment_news_layout" />
+
+    <fragment
+        android:id="@+id/noInternetFragment"
+        android:name="com.sun.vaccovid19.ui.nointernet.NoInternetFragment"
+        android:label="NoInternetFragment"
+        tools:layout="@layout/fragment_no_internet_layout" />
 </navigation>
